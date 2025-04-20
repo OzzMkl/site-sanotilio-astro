@@ -1,7 +1,9 @@
 ---
 // import Welcome from '../components/Welcome.astro';
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 import Carousel from "../components/Carousel.astro";
+import Form from "../components/Form.astro";
 
 const imagesCarrusel1 = [
   "/images/carousel/detalles_patrimoniohoy_banner.jpg",
@@ -25,7 +27,10 @@ const imagesCarrusel1 = [
       poster="/videos/video_poster.png"
       class="absolute top-0 left-0 w-full h-full object-cover"
     >
-      <source src="/videos/background_video.webm" type="video/webm" />
+      <source
+        src="/videos/background_video.webm"
+        type="video/webm"
+      />
       Tu navegador no soporta la reproducción de video.
     </video>
     <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
@@ -47,10 +52,9 @@ const imagesCarrusel1 = [
     </div>
   </div>
   <main class="py-12 px-4 sm:px-6 lg:px-8">
+    <!-- Sobre Nosotros -->
     <section class="py-8">
-      <div
-        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-      >
+      <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div class="order-2 md:order-1">
           <h2 class="text-3xl font-semibold text-gray-800 mb-4">
             Sobre Nosotros
@@ -70,18 +74,19 @@ const imagesCarrusel1 = [
           </a>
         </div>
         <div class="order-1 md:order-2">
-          <img
+          <Image
             src="/images/IMG_4157_compress.jpg"
-            alt="Ilustración sobre nosotros"
+            alt="Olustracion sobre nosotros"
+            width="600"
+            height="550"
             class="rounded-lg shadow-md"
           />
         </div>
       </div>
     </section>
+    <!-- Mision -->
     <section class="py-8">
-      <div
-        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-      >
+      <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div class="order-1 md:order-2">
           <h2 class="text-3xl font-semibold text-gray-800 mb-4">
             Nuestra Misión
@@ -93,39 +98,57 @@ const imagesCarrusel1 = [
           </p>
         </div>
         <div class="order-2 md:order-1">
-          <img
+          <Image
             src="/images/IMG_3973_compress.jpg"
-            alt="Ilustración sobre nosotros"
+            alt="Olustracion sobre nosotros"
+            width="600"
+            height="550"
             class="rounded-lg shadow-md"
           />
         </div>
       </div>
     </section>
+    <!-- Carousel 1 -->
     <section class="py-8 bg-gray-100">
-      <div class="max-w-4xl mx-auto">
-        <!-- <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
-          Nuestros Productos Destacados
-        </h2> -->
+      <div class="max-w-5xl mx-auto">
         <Carousel images={imagesCarrusel1} />
       </div>
     </section>
-    <section class="py-12">
-      <div class="max-w-6xl mx-auto text-center">
-        <h2 class="text-3xl font-semibold mb-6">
+    <!-- Visitanos -->
+    <section class="py-8">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-semibold mb-6 text-center">
           ¡Visita Nuestra Sucursal Matriz!
         </h2>
-        <p class="text-lg text-gray-700 mb-8">
-          Te esperamos en nuestra sucursal principal ubicada en <strong
-            >Calle Sonora Sur #2509, Col. México Sur, Tehuacán, Pue.</strong
-          > Ven y conoce nuestra amplia selección de materiales y recibe la mejor
-          atención.
-        </p>
-        <div class="mb-8">
-          <img
-            src="/images/matriz_compress.jpg"
-            alt="Fachada de nuestra sucursal matriz"
-            class="rounded-lg shadow-md w-full md:w-2/3 mx-auto"
-          />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
+          <div class="">
+            <p class="text-lg text-gray-700 mb-8 text-center">
+              Te esperamos en nuestra sucursal principal ubicada en
+              <strong
+                >Calle Sonora Sur #2509, Col. México Sur, Tehuacán, Pue.</strong
+              >
+              Ven y conoce nuestra amplia selección de materiales y recibe la mejor
+              atención.
+            </p>
+            <Image
+              src="/images/matriz_compress.jpg"
+              alt="Olustracion sobre nosotros"
+              width="600"
+              height="550"
+              class="rounded-lg shadow-md"
+            />
+          </div>
+          <div class="rounded-lg overflow-hidden shadow-md">
+            <iframe
+              title="mapa de ubicacion sucursal matriz"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.09799799887!2d-97.55384838527832!3d18.43788768739827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c554c16c7c7d31%3A0x9ef44a8b680a9b0a!2sCalle+Sonora+Sur+2509%2C+M%C3%A9xico+Sur%2C+75780+Tehuac%C3%A1n%2C+Pue.!5e0!3m2!1ses-MX!2smx!4v1713644468829!5m2!1ses-MX!2smx"
+              width="100%"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"></iframe>
+          </div>
         </div>
 
         <div class="flex justify-center gap-4">
@@ -141,7 +164,7 @@ const imagesCarrusel1 = [
           >
         </div>
 
-        <div class="mt-8">
+        <div class="mt-8 text-center">
           <p class="text-lg text-gray-700">
             ¿Buscas otras sucursales?
             <a
@@ -154,9 +177,40 @@ const imagesCarrusel1 = [
         </div>
       </div>
     </section>
+    <!-- Form -->
+    <section class="py-8 bg-gray-100">
+      <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="order-2 md:order-1">
+          <div class="max-w-md mx-auto">
+            <Form />
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <Image
+            src="/images/IMG_4157_compress.jpg"
+            alt="Olustracion sobre nosotros"
+            width="600"
+            height="550"
+            class="rounded-lg shadow-md"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- imf formas pago -->
+    <section class="mt-2">
+      <div>
+        <Image
+          src="/images/formas_pago_banner.jpg"
+          alt="Ilustración sobre formas de pagos"
+          width="1920"
+          height="300"
+          class="rounded-lg shadow-md"
+        />
+      </div>
+    </section>
   </main>
 
-  <footer class="bg-gray-800 text-white py-8 text-center mt-12">
+  <footer class="bg-gray-800 text-white py-8 text-center">
     <p>
       &copy; {new Date().getFullYear()} Tu Ferretería y Materiales. Todos los derechos
       reservados.
