@@ -1,11 +1,165 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// import Welcome from '../components/Welcome.astro';
+import Layout from "../layouts/Layout.astro";
+import Carousel from "../components/Carousel.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const imagesCarrusel1 = [
+  "/images/carousel/detalles_patrimoniohoy_banner.jpg",
+  "/images/carousel/beneficios_patrimoniohoy_banner.jpg",
+  "/images/carousel/cotiza_via_whatsapp_banner.jpg",
+  "/images/carousel/coppel_banner.jpg",
+  "/images/carousel/fabricantes_banner.jpg",
+  "/images/carousel/marcas_banner.jpg",
+  "/images/carousel/servicio_transportes_banner.jpg",
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="San Otilio">
+  <div
+    class="relative overflow-hidden h-screen flex items-center justify-center"
+  >
+    <video
+      autoplay
+      loop
+      muted
+      poster="/videos/video_poster.png"
+      class="absolute top-0 left-0 w-full h-full object-cover"
+    >
+      <source src="/videos/background_video.webm" type="video/webm" />
+      Tu navegador no soporta la reproducción de video.
+    </video>
+    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+    <div class="relative z-10 text-center text-white p-6">
+      <h1 class="text-4xl font-bold mb-4">
+        Materiales para tu construcción y hogar
+      </h1>
+      <p class="text-lg">
+        La mejor opción para tus proyectos de construcción, calidad y
+        satisfacción garantizadas. Fabricamos materiales de construcción y
+        ofrecemos una amplia variedad de herramientas eléctricas, así como
+        equipos para carpintería y herrería.
+      </p>
+      <a
+        href="/productos"
+        class="inline-block bg-white text-blue-500 font-bold py-3 px-6 rounded-full mt-8 hover:bg-blue-100"
+        >Explorar</a
+      >
+    </div>
+  </div>
+  <main class="py-12 px-4 sm:px-6 lg:px-8">
+    <section class="py-8">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+      >
+        <div class="order-2 md:order-1">
+          <h2 class="text-3xl font-semibold text-gray-800 mb-4">
+            Sobre Nosotros
+          </h2>
+          <p class="text-lg text-gray-700 mb-6">
+            Con más de 34 años de experiencia en el mercado, nos enorgullecemos
+            de ser una empresa 100% comprometida con la satisfacción de nuestros
+            clientes, dedicada a ofrecerles materiales y productos para
+            construcción, ferretería, plomería, material eléctrico entre otros
+            muchos de nuestro extenso catálogo.
+          </p>
+          <a
+            href="/nosotros"
+            class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded"
+          >
+            Leer más sobre nosotros
+          </a>
+        </div>
+        <div class="order-1 md:order-2">
+          <img
+            src="/images/IMG_4157_compress.jpg"
+            alt="Ilustración sobre nosotros"
+            class="rounded-lg shadow-md"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="py-8">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+      >
+        <div class="order-1 md:order-2">
+          <h2 class="text-3xl font-semibold text-gray-800 mb-4">
+            Nuestra Misión
+          </h2>
+          <p class="text-lg text-gray-700 mb-6">
+            No somos una empresa más, trabajamos para resolver tus necesidades y
+            problemas, asegurando que cada cliente esté 100% satisfecho con
+            nuestros servicios.
+          </p>
+        </div>
+        <div class="order-2 md:order-1">
+          <img
+            src="/images/IMG_3973_compress.jpg"
+            alt="Ilustración sobre nosotros"
+            class="rounded-lg shadow-md"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="py-8 bg-gray-100">
+      <div class="max-w-4xl mx-auto">
+        <!-- <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+          Nuestros Productos Destacados
+        </h2> -->
+        <Carousel images={imagesCarrusel1} />
+      </div>
+    </section>
+    <section class="py-12">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold mb-6">
+          ¡Visita Nuestra Sucursal Matriz!
+        </h2>
+        <p class="text-lg text-gray-700 mb-8">
+          Te esperamos en nuestra sucursal principal ubicada en <strong
+            >Calle Sonora Sur #2509, Col. México Sur, Tehuacán, Pue.</strong
+          > Ven y conoce nuestra amplia selección de materiales y recibe la mejor
+          atención.
+        </p>
+        <div class="mb-8">
+          <img
+            src="/images/matriz_compress.jpg"
+            alt="Fachada de nuestra sucursal matriz"
+            class="rounded-lg shadow-md w-full md:w-2/3 mx-auto"
+          />
+        </div>
+
+        <div class="flex justify-center gap-4">
+          <a
+            href="/contacto"
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded"
+            >Contáctanos</a
+          >
+          <a
+            href="/ubicacion"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded"
+            >Ver ubicación matriz</a
+          >
+        </div>
+
+        <div class="mt-8">
+          <p class="text-lg text-gray-700">
+            ¿Buscas otras sucursales?
+            <a
+              href="/sucursales"
+              class="text-blue-500 hover:underline font-semibold"
+            >
+              Consulta nuestras demás ubicaciones
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white py-8 text-center mt-12">
+    <p>
+      &copy; {new Date().getFullYear()} Tu Ferretería y Materiales. Todos los derechos
+      reservados.
+    </p>
+  </footer>
 </Layout>
