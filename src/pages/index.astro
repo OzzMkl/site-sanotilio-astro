@@ -1,11 +1,10 @@
 ---
-// import Welcome from '../components/Welcome.astro';
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Carousel from "../components/Carousel.astro";
 import Form from "../components/Form.astro";
 
-const imagesCarrusel1 = [
+const imagesCarousel1 = [
   "/images/carousel/detalles_patrimoniohoy_banner.jpg",
   "/images/carousel/beneficios_patrimoniohoy_banner.jpg",
   "/images/carousel/cotiza_via_whatsapp_banner.jpg",
@@ -27,10 +26,7 @@ const imagesCarrusel1 = [
       poster="/videos/video_poster.png"
       class="absolute top-0 left-0 w-full h-full object-cover"
     >
-      <source
-        src="/videos/background_video.webm"
-        type="video/webm"
-      />
+      <source src="/videos/background_video.webm" type="video/webm" />
       Tu navegador no soporta la reproducción de video.
     </video>
     <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
@@ -53,7 +49,7 @@ const imagesCarrusel1 = [
   </div>
   <main class="py-12 px-4 sm:px-6 lg:px-8">
     <!-- Sobre Nosotros -->
-    <section class="py-8">
+    <section class="py-8 js-scroll fade-in-left">
       <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div class="order-2 md:order-1">
           <h2 class="text-3xl font-semibold text-gray-800 mb-4">
@@ -85,7 +81,7 @@ const imagesCarrusel1 = [
       </div>
     </section>
     <!-- Mision -->
-    <section class="py-8">
+    <section class="py-8 js-scroll fade-in-right">
       <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div class="order-1 md:order-2">
           <h2 class="text-3xl font-semibold text-gray-800 mb-4">
@@ -111,11 +107,11 @@ const imagesCarrusel1 = [
     <!-- Carousel 1 -->
     <section class="py-8 bg-gray-100">
       <div class="max-w-5xl mx-auto">
-        <Carousel images={imagesCarrusel1} />
+        <Carousel images={imagesCarousel1} />
       </div>
     </section>
     <!-- Visitanos -->
-    <section class="py-8">
+    <section class="py-8 js-scroll fade-in-top">
       <div class="max-w-6xl mx-auto">
         <h2 class="text-3xl font-semibold mb-6 text-center">
           ¡Visita Nuestra Sucursal Matriz!
@@ -141,7 +137,7 @@ const imagesCarrusel1 = [
           </div>
           <div class="rounded-lg overflow-hidden shadow-md">
             <iframe
-              title="mapa de ubicacion sucursal matriz"
+              title="Mapa de ubicacion sucursal matriz"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.09799799887!2d-97.55384838527832!3d18.43788768739827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c554c16c7c7d31%3A0x9ef44a8b680a9b0a!2sCalle+Sonora+Sur+2509%2C+M%C3%A9xico+Sur%2C+75780+Tehuac%C3%A1n%2C+Pue.!5e0!3m2!1ses-MX!2smx!4v1713644468829!5m2!1ses-MX!2smx"
               width="100%"
               height="450"
@@ -178,7 +174,7 @@ const imagesCarrusel1 = [
       </div>
     </section>
     <!-- Form -->
-    <section class="py-8 bg-gray-100">
+    <section class="py-8 bg-gray-100 js-scroll fade-in-top">
       <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div class="order-2 md:order-1">
           <div class="max-w-md mx-auto">
@@ -187,7 +183,7 @@ const imagesCarrusel1 = [
         </div>
         <div class="order-1 md:order-2">
           <Image
-            src="/images/IMG_4157_compress.jpg"
+            src="/images/IMG_4197_compress.jpg"
             alt="Olustracion sobre nosotros"
             width="600"
             height="550"
@@ -197,7 +193,7 @@ const imagesCarrusel1 = [
       </div>
     </section>
     <!-- imf formas pago -->
-    <section class="mt-2">
+    <section class="mt-2 js-scroll fade-in-bottom">
       <div>
         <Image
           src="/images/formas_pago_banner.jpg"

@@ -1,5 +1,6 @@
 ---
-import "../styles/global.css"; // Importa tu archivo de estilos global de Tailwind
+import "../styles/global.css";
+import "../styles/scroll-animation.css";
 
 interface Props {
   title: string;
@@ -21,4 +22,5 @@ const { title } = Astro.props;
   <body>
     <slot />
   </body>
+  <script src="/src/scripts/scroll-animation.ts"></script>
 </html>
