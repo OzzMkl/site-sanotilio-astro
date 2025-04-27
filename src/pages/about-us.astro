@@ -1,65 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import ButtonWhatsapp  from "../components/ButtonWhatsapp.astro";
 ---
 
 <Layout title="Quiénes Somos - San Otilio">
   <main class="py-12 px-4 sm:px-6 lg:px-8">
-    <section class="max-w-3xl mx-auto text-center">
-      <h1 class="text-4xl font-bold text-gray-800 mb-8">Quiénes Somos</h1>
-      <p class="text-lg text-gray-700 mb-6">
-        Somos una empresa con más de 34 años de experiencia en el mercado,
-        comprometida con ofrecer materiales de construcción, ferretería,
-        plomería y mucho más con la más alta calidad y servicio al cliente.
-      </p>
-      <p class="text-lg text-gray-700 mb-6">
-        Nuestra misión es satisfacer las necesidades de nuestros clientes,
-        brindando soluciones integrales y productos confiables para sus
-        proyectos de construcción y hogar.
-      </p>
-      <p class="text-lg text-gray-700">
-        Valoramos la honestidad, el compromiso y la excelencia en todo lo que
-        hacemos. Nuestro equipo está dedicado a brindarte la mejor atención y
-        asesoramiento para que tus proyectos sean un éxito.
-      </p>
-    </section>
-
-    <section class="max-w-4xl mx-auto mt-12">
-      <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
-        Nuestro Equipo
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="text-center">
-          <img
-            src="/images/team/persona1.jpg"
-            alt="Nombre del Miembro 1"
-            class="rounded-full w-32 h-32 object-cover mx-auto shadow-md"
-          />
-          <h3 class="text-lg font-semibold text-gray-700 mt-2">
-            Nombre del Miembro 1
-          </h3>
-          <p class="text-sm text-gray-500">Cargo</p>
-        </div>
-        <div class="text-center">
-          <img
-            src="/images/team/persona2.jpg"
-            alt="Nombre del Miembro 2"
-            class="rounded-full w-32 h-32 object-cover mx-auto shadow-md"
-          />
-          <h3 class="text-lg font-semibold text-gray-700 mt-2">
-            Nombre del Miembro 2
-          </h3>
-          <p class="text-sm text-gray-500">Cargo</p>
-        </div>
-        <div class="text-center">
-          <img
-            src="/images/team/persona3.jpg"
-            alt="Nombre del Miembro 3"
-            class="rounded-full w-32 h-32 object-cover mx-auto shadow-md"
-          />
-          <h3 class="text-lg font-semibold text-gray-700 mt-2">
-            Nombre del Miembro 3
-          </h3>
-          <p class="text-sm text-gray-500">Cargo</p>
+    <section class="py-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-semibold mb-6 text-center">Quiénes Somos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
+          <div>
+            <h3>Materiales para construnccion San Otilio</h3>
+            <p class="text-lg text-gray-700 mb-6">
+              No somos una empresa más de materiales para construcción, nuestro
+              principal objetivo es ser la mejor opción disponible para ti.
+            </p>
+            <p class="text-lg text-gray-700 mb-6">
+              Puedes tener total confianza en nuestros productos y servicios
+              porque en Materiales para construcción San Otilio trabajamos para
+              que nuestros clientes estén 100% satisfechos. Además, contamos con
+              otros servicios que satisfagan las necesidades y resuelven los
+              problemas de nuestros clientes.
+            </p>
+            <ButtonWhatsapp/>
+          </div>
+          <div class="relative">
+            <Image
+              src="/images/IMG_4157_compress.jpg"
+              alt="Olustracion sobre nosotros"
+              width="600"
+              height="550"
+              class="rounded-lg shadow-md"
+            />
+            <div
+              class="absolute bottom-[-5%] left-[-5%] bg-[#cc6333] text-white p-4 rounded-md shadow-lg w-auto"
+              >
+              <!-- class="absolute -mt-8 " -->
+              <div class="flex flex-col items-center mr-4">
+                <span class="material-icons fill-white">schedule</span>
+                <p class="font-bold text-lg">34</p>
+                <p class="text-sm">Años</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <span class="material-icons fill-white">diversity_1</span>
+                <p class="font-bold text-lg">100%</p>
+                <p class="text-sm">Familiar</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
