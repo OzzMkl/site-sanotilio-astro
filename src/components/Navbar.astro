@@ -1,0 +1,48 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: "/", text: "Inicio" },
+  { href: "/about-us", text: "Quiénes Somos" },
+  { href: "/productos", text: "Productos" },
+  { href: "/contacto", text: "Contacto" },
+  { href: "/sucursales", text: "Sucursales" },
+];
+---
+
+<header class="fixed top-0 left-0 w-full bg-gray-800 text-white z-50 shadow-md">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <a href="/" class="text-xl font-bold">San Otilio</a>
+        <div class="hidden md:flex space-x-4 ml-6">
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                class={`hover:text-blue-400 ${
+                  currentPath === link.href ? "text-blue-400" : ""
+                }`}
+              >
+                {link.text}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="md:hidden">
+        {/* Aquí puedes agregar un botón de menú para dispositivos móviles */}
+        <button
+          class="text-white hover:text-white focus:outline-none focus:shadow-outline"
+        >
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path
+              fill-rule="evenodd"
+              d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
