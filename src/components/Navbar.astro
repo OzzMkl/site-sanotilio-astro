@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
@@ -14,26 +16,34 @@ const navLinks = [
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center">
-        <a href="/" class="text-xl font-bold">San Otilio</a>
+        <a href="/" class="flex items-center">
+          <Image
+            src="/images/logow.png"
+            alt="Logo San Otilio"
+            width="180"
+            height="40"
+            class="mr-2"
+          />
+        </a>
         <div class="hidden md:flex space-x-4 ml-6">
-          {
-            navLinks.map((link) => (
-              <a
-                href={link.href}
-                class={`hover:text-blue-400 ${
-                  currentPath === link.href ? "text-blue-400" : ""
-                }`}
-              >
-                {link.text}
-              </a>
-            ))
-          }
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class={`hover:text-blue-400 ${
+                currentPath === link.href ? "text-blue-400" : ""
+              }`}
+            >
+              {link.text}
+            </a>
+          ))}
         </div>
       </div>
       <div class="md:hidden">
-        {/* Aquí puedes agregar un botón de menú para dispositivos móviles */}
         <button
-          class="text-white hover:text-white focus:outline-none focus:shadow-outline"
+          id="mobile-menu-button"
+          class="text-white hover:text-blue-400 focus:outline-none focus:shadow-outline"
+          aria-label="Menú"
+          aria-expanded="false"
         >
           <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
             <path
@@ -45,4 +55,40 @@ const navLinks = [
       </div>
     </div>
   </nav>
+
+  {/* Menú móvil */}
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-gray-800 shadow-md"
+  >
+    <div class="px-2 py-3 space-y-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`block py-2 px-4 hover:bg-gray-700 ${
+            currentPath === link.href ? "bg-blue-400" : ""
+          }`}
+        >
+          {link.text}
+        </a>
+      ))}
+    </div>
+  </div>
 </header>
+
+<script >
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button') as HTMLButtonElement | null;
+    const mobileMenu = document.getElementById('mobile-menu') as HTMLDivElement | null;
+
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenuButton.setAttribute(
+          'aria-expanded',
+          !mobileMenu.classList.contains('hidden') ? 'true' : 'false'
+        );
+      });
+    }
+  });
+</script>
