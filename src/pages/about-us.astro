@@ -1,56 +1,279 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import ButtonWhatsapp  from "../components/ButtonWhatsapp.astro";
+import ButtonWhatsapp from "../components/ButtonWhatsapp.astro";
 ---
 
 <Layout title="Quiénes Somos - San Otilio">
   <main class="py-12 px-4 sm:px-6 lg:px-8">
+    <!-- quienes somos -->
     <section class="py-8">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-semibold mb-6 text-center">Quiénes Somos</h2>
+        <h2
+          class="text-white text-3xl md:text-5xl font-semibold py-8 mb-6 text-center bg-[url(/images/bg_quienes_somos.jpg)] bg-fixed"
+        >
+          Quiénes Somos
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
           <div>
-            <h3>Materiales para construnccion San Otilio</h3>
-            <p class="text-lg text-gray-700 mb-6">
+            <h3
+              class="bg-gradient-to-r from-amber-500 via-violet-300 to-amber-500 bg-clip-text text-3xl font-extrabold text-transparent animated-bg-gradient-cycle"
+            >
+              Materiales para construncción San Otilio
+            </h3>
+            <p class="text-xl text-gray-700 mb-6">
               No somos una empresa más de materiales para construcción, nuestro
               principal objetivo es ser la mejor opción disponible para ti.
             </p>
-            <p class="text-lg text-gray-700 mb-6">
+            <p class="text-xl text-gray-700 mb-6">
               Puedes tener total confianza en nuestros productos y servicios
               porque en Materiales para construcción San Otilio trabajamos para
               que nuestros clientes estén 100% satisfechos. Además, contamos con
               otros servicios que satisfagan las necesidades y resuelven los
               problemas de nuestros clientes.
             </p>
-            <ButtonWhatsapp/>
+            <ButtonWhatsapp />
           </div>
           <div class="relative">
             <Image
-              src="/images/IMG_4157_compress.jpg"
+              src="/images/IMG_3911_compress.jpg"
               alt="Olustracion sobre nosotros"
               width="600"
               height="550"
               class="rounded-lg shadow-md"
             />
             <div
-              class="absolute bottom-[-5%] left-[-5%] bg-[#cc6333] text-white p-4 rounded-md shadow-lg w-auto"
-              >
-              <!-- class="absolute -mt-8 " -->
-              <div class="flex flex-col items-center mr-4">
-                <span class="material-icons fill-white">schedule</span>
-                <p class="font-bold text-lg">34</p>
-                <p class="text-sm">Años</p>
+              class="absolute bottom-[-5%] left-[-5%] bg-orange-400 text-white p-4 md:p-6 rounded-md shadow-lg w-auto flex flex-row items-center justify-center gap-4 md:gap-8"
+            >
+              <div class="flex flex-col items-center">
+                <p
+                  data-count="experience"
+                  class="font-bold text-3xl md:text-5xl"
+                >
+                  0
+                </p>
+                <p class="text-base md:text-lg">Años de experiencia</p>
               </div>
               <div class="flex flex-col items-center">
-                <span class="material-icons fill-white">diversity_1</span>
-                <p class="font-bold text-lg">100%</p>
-                <p class="text-sm">Familiar</p>
+                <p data-count="family" class="font-bold text-3xl md:text-5xl">
+                  0%
+                </p>
+                <p class="text-base md:text-lg">Empresa familiar</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- nuestro proyectos -->
+    <section class="py-8 js-scroll fade-in-bottom">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-2xl md:text-4xl font-semibold py-8 mb-6 text-center border-b-4 border-amber-400 inline-block"
+        >
+          Nuestros proyectos
+        </h2>
+        <p class="text-xl text-gray-700 mb-6">
+          Descubre cómo transformamos ideas en soluciones efectivas para ti.
+        </p>
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+        >
+          <div class="order-2 md:order-1">
+            <p class="text-2xl font-semibold text-gray-800 mb-4">
+              Patrimonio Hoy
+            </p>
+            <p class="text-xl text-gray-700 mb-6">
+              Es un programa de CEMEX que ayuda a familias de bajos recursos a
+              construir, ampliar o mejorar sus viviendas mediante financiamiento
+              accesible, asesoría técnica y entrega anticipada de materiales de
+              construcción. Funciona con planes de ahorro semanales y ha
+              beneficiado a millones de personas en Latinoamérica.
+            </p>
+          </div>
+          <div class="order-1 md:order-2">
+            <Image
+              src="/images/Patrimonio-Hoy-Construir-una-casa-2.jpg"
+              alt="Olustracion sobre nosotros"
+              width="900"
+              height="400"
+              class="rounded-lg shadow-md"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Misión, visión y valores -->
+    <section class="py-8 js-scroll fade-in-top">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-2xl md:text-4xl font-semibold py-8 mb-6 text-center border-b-4 border-amber-400 inline-block"
+        >
+          ¿Por qué escogernos?
+        </h2>
+
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+        >
+          <!-- Tarjetas -->
+          <div class="order-1 md:order-2 space-y-6">
+            <!-- Card 1 -->
+            <div
+              class="flex items-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105"
+            >
+              <div class="relative flex items-center justify-center w-16 h-16">
+                <div
+                  class="relative flex items-center justify-center w-16 h-16"
+                >
+                  <!-- Glow animado -->
+                  <span
+                    class="absolute inline-flex w-16 h-16 rounded-full bg-amber-300 opacity-30 animate-ping blur-sm"
+                  ></span>
+
+                  <!-- Icono fijo -->
+                  <span class="material-icons text-amber-500 text-5xl">
+                    flag
+                  </span>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Nuestra Misión</h3>
+                <p class="text-gray-600">
+                  Ayudarte a construir tus sueños ofreciendo productos y
+                  servicios de calidad, en el tiempo y forma correctos.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="flex items-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105"
+            >
+              <div class="relative flex items-center justify-center w-16 h-16">
+                <div
+                  class="relative flex items-center justify-center w-16 h-16"
+                >
+                  <!-- El "ping" animado -->
+                  <span
+                    class="absolute inline-flex w-16 h-16 rounded-full bg-amber-300 opacity-30 animate-ping blur-sm"
+                  ></span>
+
+                  <!-- El ícono fijo -->
+                  <span class="material-icons text-amber-500 text-6xl">
+                    visibility
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-bold mb-2">Nuestra Visión</h3>
+                <p class="text-gray-600">
+                  Ser líderes en el ramo, innovando constantemente para ofrecer
+                  el mejor servicio en materiales de construcción.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="flex items-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105"
+            >
+              <div class="relative flex items-center justify-center w-16 h-16">
+                <div
+                  class="relative flex items-center justify-center w-16 h-16"
+                >
+                  <!-- El "ping" animado -->
+                  <span
+                    class="absolute inline-flex w-16 h-16 rounded-full bg-amber-300 opacity-30 animate-ping blur-sm"
+                  ></span>
+
+                  <!-- El ícono fijo -->
+                  <span class="material-icons text-amber-500 text-6xl">
+                    favorite
+                  </span>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Nuestros Valores</h3>
+                <p class="text-gray-600">
+                  Honestidad, respeto, lealtad, compromiso y trabajo en equipo
+                  como base de nuestro servicio.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Imagen -->
+          <div class="order-2 md:order-1">
+            <Image
+              src="/images/IMG_4167_compress.jpg"
+              alt="Ilustración sobre nosotros"
+              width="600"
+              height="550"
+              class="rounded-lg shadow-md"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
+<style>
+  .animated-bg-gradient-cycle {
+    background-size: 300% 300%;
+    animation: moveBgGradientCycle 5s ease-in-out infinite;
+  }
+
+  @keyframes moveBgGradientCycle {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const experienceElement = document.querySelector(
+      "p[data-count='experience']"
+    ) as HTMLElement;
+    const familyElement = document.querySelector(
+      "p[data-count='family']"
+    ) as HTMLElement;
+
+    if (experienceElement) {
+      animateCountUp(experienceElement, 34, 2000);
+    }
+
+    if (familyElement) {
+      animateCountUp(familyElement, 100, 2000, true);
+    }
+
+    function animateCountUp(
+      element: HTMLElement,
+      target: number,
+      duration: number = 2000,
+      withPercent: boolean = false
+    ) {
+      const startTime = performance.now();
+
+      function update(currentTime: number) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.floor(progress * target);
+
+        element.textContent = withPercent ? `${value}%` : value.toString();
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+  });
+</script>
