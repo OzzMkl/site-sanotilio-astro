@@ -32,10 +32,10 @@ const { image, name, address, schedule, phone, link } = Astro.props;
     <a
       href={link}
       target="_blank"
-      class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded"
-
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded inline-flex items-center"
     >
       Ver ubicación
+      <span class="material-icons ml-2 text-5xl"> map </span>
     </a>
   </div>
 </div>

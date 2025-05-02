@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LocationCard from '../components/LocationCard.astro';
+
+// Datos de sucursales
+const branches = [
+  {
+    name: "Matriz",
+    address: "Calle Sonora Sur #2509, Col. México Sur, Tehuacán, Pue.",
+    schedule: "Lunes a Viernes 8:00am - 7:15pm",
+    phone: "+52 238 107 1077",
+    image: "/images/locations/matriz.webp",
+    link: "https://goo.gl/maps/R8RdRGX3vvBqRhNq8"
+  },
+  {
+    name: "Aeropuerto",
+    address: "Av. de los deportes #4229, Col. Aeropuerto, Tehuacán, Pue.",
+    schedule: "Lunes a Viernes 8:00am - 7:15pm",
+    phone: "+52 238 383 6274",
+    image: "/images/locations/aeropuerto.webp",
+    link: "https://goo.gl/maps/8YNnk4SNpmNCNpC89"
+  },
+  {
+    name: "Bloquera",
+    address: "Carretera Federal, Teh-Pue, Francisco I. Madero S/N",
+    schedule: "Lunes a Viernes 8:00am - 7:15pm",
+    phone: "+52 238 102 5888",
+    image: "/images/locations/bloquera.webp",
+    link: "https://maps.app.goo.gl/Lz6m4a6grKBrJ65M6"
+  },
+  {
+    name: "Viveros",
+    address: "San Antonio Viveros, 75758 Tehuacán, Pue.",
+    schedule: "Lunes a Viernes 8:00am - 7:15pm",
+    phone: "+52 238 107 9232",
+    image: "/images/locations/viveros.webp",
+    link: "https://maps.app.goo.gl/bgVVdx85EQeRSN2Q9"
+  },
+  {
+    name: "San Gabriel Chilac",
+    address: "Niños Heroes, Primera, 75886 San Gabriel Chilac, Pue.",
+    schedule: "Lunes a Viernes 8:00am - 7:15pm",
+    phone: "+52 237 381 5600",
+    image: "/images/locations/chilac.webp",
+    link: "https://maps.app.goo.gl/N7kiE39FPwPp9575A"
+  },
+  {
+    name: "San Juan Ixcaquixtla",
+    address: "Av. Prol. Gral. Antonio Nava, Castillo #1110, Col. Barrio de 13, San Juan Ixcaquixtla, Pue.",
+    schedule: "Lunes a Viernes 8:00am - 7:15pm",
+    phone: "+52 224 421 7595",
+    image: "/images/locations/san_juan.webp",
+    link: "https://maps.app.goo.gl/qXGTJyuPBKxbDBjo6"
+  },
+  {
+    name: "Juan Pablo",
+    address: "Calle Vicente Guerrero S/N, esquina con calle Francisco Natividad, Tehuacán, Pue",
+    schedule: "Lunes a Viernes 8:00am - 7:15pm y Sábados 8:00am - 2:00pm",
+    phone: "+52 238 123 9993",
+    image: "/images/locations/juan_pablo.webp",
+    link: "https://maps.app.goo.gl/cn8GK6Dc4rndj7CC7"
+  },
+  {
+    name: "Maceda",
+    address: "Calle 5 de Mayo #11, San Marcos Tlacoyalco, Tlacotepec de Benito Juárez",
+    schedule: "Lunes a Viernes 8:00am - 6:30pm",
+    phone: "+52 237 381 0250",
+    image: "/images/locations/maceda.webp",
+    link: "https://maps.app.goo.gl/SJn8K5gFkPmQQVCGA"
+  },
+];
+---
+
+<Layout title="Sucursales">
+  <section class="text-center py-12 bg-gradient-to-r from-blue-100 to-blue-200">
+    <h1 class="text-4xl font-bold text-gray-800">Nuestras Sucursales</h1>
+    <p class="text-lg text-gray-600 mt-2">Encuentra la más cercana a ti</p>
+  </section>
+
+  <main class="px-4 md:px-8 py-12 max-w-7xl mx-auto">
+    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {branches.map(branch => (
+        <LocationCard {...branch} />
+      ))}
+    </div>
+  </main>
+</Layout>
