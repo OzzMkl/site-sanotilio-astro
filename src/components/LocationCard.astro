@@ -26,17 +26,17 @@ const { image, name, address, schedule, phone, link } = Astro.props;
   <div class="p-6">
     <h3 class="text-xl font-bold text-gray-800 mb-2">{name}</h3>
     <p class="text-gray-600 mb-1">
-      <span class="material-icons text-amber-500 text-5xl"> location_on </span>
+      <span class="material-icons text-amber-500 text-5xl tilt-hover"> location_on </span>
       {address}
     </p>
     <p class="text-gray-600 mb-1">
-      <span class="material-icons text-amber-500 text-5xl"
+      <span class="material-icons text-amber-500 text-5xl tilt-hover"
         >access_time_filled</span
       >
       {schedule}
     </p>
     <p class="text-gray-600 mb-4">
-      <span class="material-icons text-amber-500 text-5xl"> call </span>
+      <span class="material-icons text-amber-500 text-5xl tilt-hover"> call </span>
       <a href={`tel:${phone}`} class="hover:underline">{phone}</a>
     </p>
     <a

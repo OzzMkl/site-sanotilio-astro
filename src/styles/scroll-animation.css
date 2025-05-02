@@ -26,3 +26,30 @@
   opacity: 1;
   transform: translate(0, 0);
 }
+
+.tilt-rotate {
+  animation: tilt-rotate 1s ease-in-out;
+}
+
+@keyframes tilt-rotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(20deg);
+  }
+  40% {
+    transform: rotate(-20deg);
+  }
+  60% {
+    transform: rotate(20deg);
+  }
+  80% {
+    transform: rotate(-20deg);
+  }
+}
+
+.group:hover .tilt-hover {
+  animation: tilt-rotate 1.2s ease-in-out;
+}
