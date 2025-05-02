@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+const { image, name, address, schedule, phone, link } = Astro.props;
+---
+
+<div
+  class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out"
+>
+  <Image
+    src={image}
+    alt={`Imagen de sucursal ${name} san otilio`}
+    width="400"
+    height="350"
+    class="w-full h-56 object-coverd"
+  />
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">{name}</h3>
+    <p class="text-gray-600 mb-1">
+      <span class="material-icons text-amber-500 text-5xl"> location_on </span>
+      {address}
+    </p>
+    <p class="text-gray-600 mb-1">
+      <span class="material-icons text-amber-500 text-5xl"
+        >access_time_filled</span
+      >
+      {schedule}
+    </p>
+    <p class="text-gray-600 mb-4">
+      <span class="material-icons text-amber-500 text-5xl"> call </span>
+      <a href={`tel:${phone}`} class="hover:underline">{phone}</a>
+    </p>
+    <a
+      href={link}
+      target="_blank"
+      class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded"
+
+    >
+      Ver ubicación
+    </a>
+  </div>
+</div>
