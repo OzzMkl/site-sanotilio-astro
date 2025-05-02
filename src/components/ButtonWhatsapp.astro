@@ -1,10 +1,19 @@
 ---
 import { Image } from "astro:assets";
+
+interface Props {
+  animate?: boolean;
+  class?: string;
+}
+
+const { animate = false, class: extraClass = "" } = Astro.props;
+
+const animationClass = animate ? "animate-bounce" : "";
 ---
 
 <a
   href="https://api.whatsapp.com/send?phone=522381239217&text=Hola%2C%20quiero%20generar%20una%20cotizaci%C3%B3n"
-  class="bg-orange-400 hover:bg-orange-800 text-white font-bold py-3 px-2 inline-flex items-center rounded animate-bounce"
+  class={`bg-orange-400 hover:bg-orange-800 text-white font-bold py-3 px-2 inline-flex items-center rounded ${animationClass} ${extraClass}`}
 >
   <span>Contáctanos</span>
   <Image
