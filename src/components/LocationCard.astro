@@ -1,10 +1,20 @@
 ---
 import { Image } from "astro:assets";
+import ButtonWhatsapp from "./ButtonWhatsapp.astro";
+interface Props {
+  image: string;
+  name: string;
+  address: string;
+  schedule: string;
+  phone: string;
+  link: string;
+}
+
 const { image, name, address, schedule, phone, link } = Astro.props;
 ---
 
 <div
-  class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out"
+  class="group bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out"
 >
   <Image
     src={image}
@@ -37,5 +47,6 @@ const { image, name, address, schedule, phone, link } = Astro.props;
       Ver ubicación
       <span class="material-icons ml-2 text-5xl"> map </span>
     </a>
+    <ButtonWhatsapp animate={false} class="group-hover:animate-bounce"/>
   </div>
 </div>
