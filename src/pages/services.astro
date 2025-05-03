@@ -1,0 +1,108 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import ServiceCard from "../components/ServiceCard.astro";
+
+const services = [
+  {
+    icon: "category",
+    title: "Venta de Block y Anillos a la Medida",
+    text: "Fabricamos y vendemos block y anillos personalizados, adaptados al tamaño exacto que tu proyecto requiere.",
+  },
+  {
+    icon: "build",
+    title: "Renta de Maquinaria",
+    text: "Contamos con equipo especializado para facilitar tus trabajos de obra, excavación y demolición.",
+  },
+  {
+    icon: "delete",
+    title: "Sacar Escombro",
+    text: "Ofrecemos el servicio de recolección y retiro de escombro de forma rápida y segura, ideal para mantener tus espacios limpios y en orden.",
+  },
+  {
+    icon: "calculate",
+    title: "Cotización de Losa",
+    text: "Te ayudamos a calcular y cotizar tu losa con materiales y medidas precisas para optimizar tu presupuesto.",
+  },
+  {
+    icon: "vertical_split",
+    title: "Postes de Concreto",
+    text: "Disponibles en diferentes medidas y resistentes para cualquier tipo de instalación eléctrica o estructural.",
+  },
+];
+---
+
+<Layout title="Servicios -  San Otilio">
+  <section
+    class="text-center py-8 bg-[url(/images/bg_quienes_somos.webp)] bg-fixed"
+  >
+    <h2 class="text-white text-4xl md:text-5xl font-semibold py-8 mb-6">
+      Nuestros servicios
+    </h2>
+  </section>
+  <main class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h2
+        class="text-2xl md:text-4xl font-semibold py-8 mb-6 text-center border-b-4 border-amber-400 inline-block"
+      >
+        Disfruta de la experiencia San Otilio
+      </h2>
+      <p class="text-xl text-gray-700 mb-6">
+        En Materiales San Otilio te ofrecemos soluciones completas para tus
+        proyectos de construcción. Nuestro compromiso es brindarte atención
+        personalizada, productos de calidad y servicios eficientes que se
+        adaptan a tus necesidades.
+      </p>
+
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+      >
+        <!-- Tarjetas -->
+        <div class="order-1 md:order-2 space-y-6">
+          {services.map((service) => <ServiceCard {...service} />)}
+        </div>
+
+        <!-- Imagen -->
+        <div class="order-2 md:order-1">
+          <Image
+            src="/images/IMG_3964_compress.jpg"
+            alt="Patio sucursal bloquera San Otilio"
+            loading="lazy"
+            width="1920"
+            height="1080"
+            class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl sm-px-6 lg:px-8">
+        <h2
+        class="text-2xl md:text-4xl font-semibold py-8 mb-6 text-center border-b-4 border-amber-400 inline-block"
+      >
+        Productos
+      </h2>
+      <p class="text-xl text-gray-700 mb-6">
+        Trabajando solo con las mejores marcas y productos del mercado, para
+        garantizar la calidad y durabilidad de tus proyectos.
+      </p>
+        {services.map((service, index) => (
+            <div
+              class={`flex flex-col md:flex-row ${
+                index % 2 !== 0 ? 'md:flex-row-reverse' : ''
+              } items-center gap-6 my-10`}
+            >
+              <div class="w-full md:w-1/2">
+                <!-- Puedes poner una imagen decorativa aquí si quieres -->
+                <div class="bg-amber-100 rounded-2xl p-8 shadow-lg h-full flex items-center justify-center">
+                  <span class="material-icons text-amber-500 text-6xl">{service.icon}</span>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2">
+                <h3 class="text-2xl font-bold mb-2">{service.title}</h3>
+                <p class="text-gray-700 text-lg">{service.text}</p>
+              </div>
+            </div>
+          ))}
+    </div>
+  </main>
+</Layout>

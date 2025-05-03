@@ -1,0 +1,26 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+const { icon, title, text } = Astro.props;
+---
+
+<div
+  class="group flex items-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105"
+  tabindex="0"
+>
+  <div class="relative flex items-center justify-center w-16 h-16">
+    <div class="relative flex items-center justify-center w-16 h-16">
+      <span class="material-icons text-amber-500 text-5xl tilt-hover">
+        {icon}
+      </span>
+    </div>
+  </div>
+  <div>
+    <h3 class="text-xl font-bold mb-2">{title}</h3>
+    <p class="text-gray-600">{text}</p>
+  </div>
+</div>
