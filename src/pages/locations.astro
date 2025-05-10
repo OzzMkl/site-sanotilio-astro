@@ -84,9 +84,11 @@ const branches = [
     <p class="text-xl font-bold">Un paso más cerca de ti</p>
   </section>
 
-  <main class="px-4 md:px-8 py-12 max-w-7xl mx-auto">
-    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      {branches.map((branch) => <LocationCard {...branch} />)}
+  <main class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {branches.map((branch) => <LocationCard {...branch} />)}
+      </div>
     </div>
   </main>
 </Layout>
