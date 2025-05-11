@@ -223,24 +223,6 @@ import ButtonWhatsapp from "../components/ButtonWhatsapp.astro";
     </section>
   </main>
 </Layout>
-<style>
-  .animated-bg-gradient-cycle {
-    background-size: 300% 300%;
-    animation: moveBgGradientCycle 5s ease-in-out infinite;
-  }
-
-  @keyframes moveBgGradientCycle {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-</style>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const experienceElement = document.querySelector(

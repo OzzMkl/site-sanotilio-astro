@@ -53,3 +53,20 @@
 .group:hover .tilt-hover {
   animation: tilt-rotate 1.2s ease-in-out;
 }
+
+.animated-bg-gradient-cycle {
+  background-size: 300% 300%;
+  animation: moveBgGradientCycle 5s ease-in-out infinite;
+}
+
+@keyframes moveBgGradientCycle {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
