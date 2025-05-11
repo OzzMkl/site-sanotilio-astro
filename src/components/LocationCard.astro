@@ -19,6 +19,7 @@ const { image, name, address, schedule, phone, link } = Astro.props;
 >
   <Image
     src={image}
+    loading="lazy"
     alt={`Imagen de sucursal ${name} san otilio`}
     width="400"
     height="350"

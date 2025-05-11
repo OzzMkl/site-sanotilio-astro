@@ -19,6 +19,7 @@ const { images, interval = 3000 } = Astro.props;
       images.map((image, index) => (
         <Image
           src={image}
+          loading="lazy"
           alt={`Imagen ${index + 1}`}
           width="1920"
           height="450"
