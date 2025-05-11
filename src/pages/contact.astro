@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Form from "../components/Form.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import ButtonWhatsapp from "../components/ButtonWhatsapp.astro";
+
+const data_contact = [
+  {
+    icon: "phone_iphone",
+    title: "Telefono",
+    text: "+52 238 107 1077",
+  },
+  {
+    icon: "email",
+    title: "Email",
+    text: "contacto@materialessanotilio.mx",
+  },
+];
+
+const data_visit = [
+  {
+    icon: "place",
+    title: "Dirección",
+    text: "Calle Sonora Sur #2509, Col. México Sur, Tehuacán, Pue.",
+  },
+  {
+    icon: "access_time",
+    title: "Horario",
+    text: "Lunes a Viernes 8:00am - 7:15pm.",
+  },
+];
+---
+
+<Layout title="Contacto - San Otilio">
+  <main class="py-12 px-4 sm:px-6 lg:px-8">
+    <!-- contactanos -->
+    <section class="py-8">
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+      >
+        <div class="order-2 md:order-1">
+          <h2
+            class="bg-gradient-to-r from-amber-500 via-violet-300 to-amber-500 bg-clip-text text-5xl font-extrabold text-transparent animated-bg-gradient-cycle"
+          >
+            Contáctanos
+          </h2>
+          <p class="text-xl text-gray-700 mt-4">
+            Estamos aquí para resolver tus dudas y ofrecerte la mejor atención.
+            Tu satisfacción es nuestra prioridad. ¡Escríbenos!
+          </p>
+          <div class="space-y-6">
+            {data_contact.map((data) => <ServiceCard {...data} />)}
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <Form />
+        </div>
+      </div>
+    </section>
+    <!-- visitanos -->
+    <section class="py-8 js-scroll fade-in-bottom">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-2xl md:text-4xl font-semibold py-8 mb-6 text-center border-b-4 border-amber-400 inline-block"
+        >
+          Visítanos
+        </h2>
+        <p class="text-xl text-gray-700 mb-6">
+          Estamos aquí para ayudarte con tus necesidades de construcción.
+          Visítanos y descubre la calidad de nuestros productos y servicios.
+        </p>
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+        >
+          <div class="order-1 md:order-2">
+            <div class="space-y-6">
+              {data_visit.map((data) => <ServiceCard {...data} />)}
+            </div>
+            <div class="flex justify-center gap-4 mt-6">
+              <ButtonWhatsapp animate={true} />
+              <a
+                href="https://goo.gl/maps/R8RdRGX3vvBqRhNq8"
+                target="_blank"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-2 inline-flex items-center rounded"
+                >Ver ubicación
+                <span class="material-icons ml-2"> map </span>
+              </a>
+            </div>
+
+            <div class="mt-8 text-center">
+              <p class="text-xl text-gray-700">
+                ¿Buscas otras sucursales?
+                <a
+                  href="/locations"
+                  class="text-blue-500 hover:underline font-semibold"
+                >
+                  Consulta nuestras demás ubicaciones
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="order-2 md:order-1">
+            <Image
+              src="/images/matriz_compress.webp"
+              loading="lazy"
+              alt="Fachada de la sucursal San Otilio Aeropuerto"
+              width="600"
+              height="550"
+              class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
