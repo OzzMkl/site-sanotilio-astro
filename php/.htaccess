@@ -1,3 +1,25 @@
-<RequireAll>
+# .htaccess en /php
+# Bloquea todo por defecto
+<FilesMatch ".*">
     Require all denied
-</RequireAll>
+</FilesMatch>
+
+# Permite solo el acceso a send-email.php
+<Files "send-mail.php">
+    Require all granted
+</Files>
+
+# Bloquea el .env explícitamente (doble capa de protección)
+<Files ".env">
+    Require all denied
+</Files>
+
+# Bloquea la carpeta vendor completamente
+<Directory "vendor">
+    Require all denied
+</Directory>
+
+# Bloquea composer files
+<FilesMatch "^(composer\.json|composer\.lock)$">
+    Require all denied
+</FilesMatch>

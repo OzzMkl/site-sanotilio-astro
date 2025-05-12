@@ -1,40 +1,42 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require __DIR__ . '/vendor/autoload.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use Dotenv\Dotenv;
+// Cargar variables desde .env
+$env = parse_ini_file(__DIR__ . '/.env');
 
-// Carga las variables de entorno
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-$mail = new PHPMailer(true);
+$mail = new PHPMailer;
 
 try {
     // Configuración del servidor SMTP
     $mail->isSMTP();
-    $mail->Host       = $_ENV['HOST'];
+    $mail->Host       = $env['HOST'];
     $mail->SMTPAuth   = true;
-    $mail->Username   = $_ENV['EMAIL'];
-    $mail->Password   = $_ENV['PASSWORD'];
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Para puerto 465
-    $mail->Port       = $_ENV['PORT'];
+    $mail->Username   = $env['EMAIL'];
+    $mail->Password   = $env['PASSWORD'];
+    $mail->SMTPSecure = 'tls';
+    $mail->Port       = $env['PUERTO'];
 
     // Remitente y destinatario
-    $mail->setFrom($_ENV['EMAIL'], 'Sitio Web');
-    $mail->addAddress($_ENV['EMAIL'], 'Administrador'); // Te lo envías a ti mismo
+    $mail->setFrom($env['EMAIL'], 'Formulario Web');
+    $mail->addAddress($env['EMAIL']); // Se envía a sí mismo
 
     // Contenido del correo
     $mail->isHTML(true);
-    $mail->Subject = 'Nuevo mensaje del formulario de contacto';
-    $mail->Body    = '
-        <strong>Nombre:</strong> ' . $_POST['nombre'] . '<br>
-        <strong>Teléfono:</strong> ' . $_POST['telefono'] . '<br>
-        <strong>Correo:</strong> ' . $_POST['correo'] . '<br>
-        <strong>Mensaje:</strong><br>' . nl2br($_POST['mensaje']);
+    $mail->Subject = 'Nuevo mensaje desde el formulario';
+    $mail->Body    = "
+        <b>Nombre:</b> {$_POST['nombre']}<br>
+        <b>Teléfono:</b> {$_POST['telefono']}<br>
+        <b>Correo:</b> {$_POST['correo']}<br>
+        <b>Mensaje:</b><br>{$_POST['mensaje']}
+    ";
 
     $mail->send();
-    echo 'Mensaje enviado correctamente.';
+
+    echo 'Mensaje enviado con éxito';
 } catch (Exception $e) {
-    echo 'Error al enviar el mensaje: ' . $mail->ErrorInfo;
+    http_response_code(500);
+    echo "Error al enviar el mensaje: {$mail->ErrorInfo}";
 }
