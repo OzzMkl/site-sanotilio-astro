@@ -1,0 +1,19 @@
+services:
+  astro:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      - PORT=$PORT
+      - HOST=$HOST
+    restart: always
+    ports:
+      - '$PORT:80'
+      # - '443:443'
+    # volumes:
+    #   - /etc/letsencrypt/live/materialessanotilio.mx/fullchain.pem:/etc/letsencrypt/live/materialessanotilio.mx/fullchain.pem
+    #   - /etc/letsencrypt/live/materialessanotilio.mx/privkey.pem:/etc/letsencrypt/live/materialessanotilio.mx/privkey.pem
+    #   - /etc/letsencrypt/live/api.materialessanotilio.mx/fullchain.pem:/etc/letsencrypt/live/api.materialessanotilio.mx/fullchain.pem
+    #   - /etc/letsencrypt/live/api.materialessanotilio.mx/privkey.pem:/etc/letsencrypt/live/api.materialessanotilio.mx/privkey.pem
