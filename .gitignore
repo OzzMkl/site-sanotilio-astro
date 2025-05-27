@@ -29,3 +29,7 @@ pnpm-debug.log*
 
 #backend
 php/vendor
+
+# archivos de certbot
+/certbot/conf/
+/certbot/www/.well-known/acme-challenge/

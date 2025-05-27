@@ -1,5 +1,32 @@
 services:
+  nginx:
+    container_name: nginx-ssl
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx-ssl.conf:/etc/nginx/conf.d/default.conf
+      - ./certbot/www:/var/www/certbot # Para los desafíos de Certbot
+      - ./certbot/conf:/etc/letsencrypt # Para los certificados SSL
+      - ./nginx/ssl/options-ssl-nginx.conf:/etc/nginx/ssl/options-ssl-nginx.conf
+      - ./nginx/ssl/ssl-dhparams.pem:/etc/nginx/ssl/ssl-dhparams.pem
+    depends_on:
+      - astro
+    restart: always
+    networks:
+      - shared_nginx_network
+
+  certbot:
+    container_name: certbot
+    image: certbot/certbot
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    command: certonly --webroot -w /var/www/certbot -d materialessanotilio.mx --email sistemas02@materialessanotilio.mx --agree-tos --no-eff-email --force-renewal
+
   astro:
+    container_name: sanotilio-astro
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,11 +36,9 @@ services:
       - PORT=$PORT
       - HOST=$HOST
     restart: always
-    ports:
-      - '$PORT:80'
-      # - '443:443'
-    # volumes:
-    #   - /etc/letsencrypt/live/materialessanotilio.mx/fullchain.pem:/etc/letsencrypt/live/materialessanotilio.mx/fullchain.pem
-    #   - /etc/letsencrypt/live/materialessanotilio.mx/privkey.pem:/etc/letsencrypt/live/materialessanotilio.mx/privkey.pem
-    #   - /etc/letsencrypt/live/api.materialessanotilio.mx/fullchain.pem:/etc/letsencrypt/live/api.materialessanotilio.mx/fullchain.pem
-    #   - /etc/letsencrypt/live/api.materialessanotilio.mx/privkey.pem:/etc/letsencrypt/live/api.materialessanotilio.mx/privkey.pem
+    networks:
+      - shared_nginx_network
+
+networks:
+  shared_nginx_network:
+    external: true
